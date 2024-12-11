@@ -46,6 +46,8 @@ UPDATE graduates SET Graduation ='2020-2-8' WHERE Name ='Layal';
 #12. Remove Layal's record from **students**
 DELETE FROM students WHERE Name='Layal';
 
+
+### Joins
 #14. Produce a table that contains, for each employee, his/her name, company name, and company date.
 SELECT employees.Name AS Employee, companies.Name AS Company, companies.Date AS Date
 FROM employees
@@ -64,7 +66,30 @@ JOIN employees ON companies.Name = employees.Company
 WHERE employees.Role = 'Graphic Designer';
 
 
+### Count & Filter
+#18. Find the person with the highest number of points in **students**
+SELECT Name
+FROM students
+WHERE Points = (SELECT MAX(Points) FROM students);
+
+#19. Find the average of points in **students**
+SELECT AVG(Points) AS AveragePoints
+FROM students;
+
+#20. Find the number of students that have 500 points
+SELECT COUNT(*) AS NumberOfStudentsHave500pt
+FROM students
+WHERE Points = 500;
+
+#21. Find the names of students that contains 's'
+SELECT Name
+FROM students
+WHERE Name LIKE '%s%';
+
+#22. Find all students based on the decreasing order of their points
+SELECT *
+FROM students
+ORDER BY Points DESC;
 
 
 
-### Joins
