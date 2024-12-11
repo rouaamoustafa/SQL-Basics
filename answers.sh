@@ -1,3 +1,5 @@
+
+### Basic Queries
 #1. Get all the names of students in the database
 select Name From students;
 
@@ -19,7 +21,12 @@ UPDATE students SET Points = Points + 50 WHERE name ='Basma';
 #7. Decrease the points of **Alex** because he's late today
 UPDATE students SET Points = Points - 20 WHERE name ='Alex';
 
-#Creating Table
+
+
+
+
+
+### Creating Table
 CREATE TABLE graduates(
 ID INTEGER NOT NULL PRIMARY Key AUTOINCREMENT,
 name TEXT NOT NULL,
@@ -38,3 +45,26 @@ UPDATE graduates SET Graduation ='2020-2-8' WHERE Name ='Layal';
 
 #12. Remove Layal's record from **students**
 DELETE FROM students WHERE Name='Layal';
+
+#14. Produce a table that contains, for each employee, his/her name, company name, and company date.
+SELECT employees.Name AS Employee, companies.Name AS Company, companies.Date AS Date
+FROM employees
+JOIN companies ON employees.Company = companies.name;
+
+#15. Find the name of **employees** that work in companies made before 2000.
+SELECT employees.Name
+FROM employees
+JOIN companies ON employees.Company = companies.Name
+WHERE companies.Date < 2000;
+
+#16. Find the name of company that has a graphic designer.
+SELECT companies.Name
+FROM companies
+JOIN employees ON companies.Name = employees.Company
+WHERE employees.Role = 'Graphic Designer';
+
+
+
+
+
+### Joins
